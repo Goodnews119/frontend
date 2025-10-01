@@ -27,14 +27,10 @@ function App() {
 }
 
 function Home() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch(`${API_URL}/products`)
-      .then(res => res.json())
-      .then(data => setProducts(data))
-      .catch(err => console.error(err));
-  }, []);
+  const [products, setProducts] = useState([
+    { id: 1, name: "Test Product", price: 99 },
+    { id: 2, name: "Another Product", price: 149 }
+  ]);
 
   return (
     <div>
@@ -49,6 +45,7 @@ function Home() {
     </div>
   );
 }
+
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
